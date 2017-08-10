@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types'
 
 //Stateless functional component
 //For components that only have render method
@@ -15,13 +16,18 @@ function ListContacts(props){
             <p>{contact.name}</p>
             <p>{contact.email}</p>
           </div>
-          <button onClick={() => props.ondeleteContact(contact)} className='contact-remove'>
+          <button onClick={() => props.onDeleteContact(contact)} className='contact-remove'>
             Remove
           </button>
         </li>
       ))}
     </ol>
   )
+}
+
+ListContacts.PropTypes= {
+  contacts: PropTypes.array.isRequired,
+
 }
 
 export default ListContacts
