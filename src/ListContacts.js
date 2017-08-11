@@ -28,7 +28,7 @@ class ListContacts extends Component{
   render(){
 
   //Object destructuring ES6
-  const {contacts, onDeleteContact} = this.props
+  const {contacts, onDeleteContact, onNavigate} = this.props
   const {query} = this.state
 
 
@@ -43,9 +43,9 @@ class ListContacts extends Component{
   showingContacts.sort(sortBy('name'))
 
   return(
-    <div className='List-contacts'>
+    <div className='list-contacts'>
       {JSON.stringify(this.state)}
-      <div className='List-contacts-top'>
+      <div className='list-contacts-top'>
         <input
           className='search-contacts'
           type='text'
@@ -53,6 +53,11 @@ class ListContacts extends Component{
           value={this.state.query}
           onChange={(event)=>this.updateQuery(event.target.value)}
         />
+        <a
+          href='#create'
+          onClick={onNavigate}
+          className='add-contact'
+          >Add Contact</a>
       </div>
 
       {showingContacts.length !== contacts.length && (
